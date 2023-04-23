@@ -2,6 +2,7 @@ package com.medeiros.SPRINGProject.Controllers;
 
 import com.medeiros.SPRINGProject.Models.MusicModel;
 import com.medeiros.SPRINGProject.Models.MusicRepository;
+import com.medeiros.SPRINGProject.algorithm.algorithmBlender;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,11 +15,13 @@ import java.util.Optional;
 public class AppController {
 
     MusicRepository musicRepo;
-
+    algorithmBlender ab = new algorithmBlender();
     @GetMapping("/feed")
-    public Iterable<MusicModel> showMusics(){
-        return musicRepo.findAll();
+    public  Iterable<MusicModel> showMusics(){
+        Iterable<MusicModel> listMusic = musicRepo.findAll();
+        return (Iterable<MusicModel>) ab.algorithmCalc(listMusic);
     }
+    //a
     @GetMapping("/like/{musicID}/{userID}")
     public String likeTheMusic(@PathVariable int musicID ,
                              @PathVariable int userID){
