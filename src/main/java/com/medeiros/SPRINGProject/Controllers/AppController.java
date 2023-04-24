@@ -21,7 +21,7 @@ public class AppController {
         Iterable<MusicModel> listMusic = musicRepo.findAll();
         return (Iterable<MusicModel>) ab.algorithmCalc(listMusic);
     }
-    //a
+    //aa
     @GetMapping("/like/{musicID}/{userID}")
     public String likeTheMusic(@PathVariable int musicID ,
                              @PathVariable int userID){
