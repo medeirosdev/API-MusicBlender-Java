@@ -1,8 +1,7 @@
+/*
 package com.medeiros.SPRINGProject.Controllers;
 
-import com.medeiros.SPRINGProject.Models.UserModel;
-import com.medeiros.SPRINGProject.Models.UserModelRepository;
-import org.apache.catalina.User;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,3 +28,5 @@ public class UserController {
         return  "Usuario " + user01.getID() + "Deletado";
     }
 }
+
+*/
