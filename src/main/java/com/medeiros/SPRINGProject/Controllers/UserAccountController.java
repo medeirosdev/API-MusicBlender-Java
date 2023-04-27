@@ -1,5 +1,7 @@
 package com.medeiros.SPRINGProject.Controllers;
 
+import com.medeiros.SPRINGProject.Models.LogModel;
+import com.medeiros.SPRINGProject.Models.LogRepository;
 import com.medeiros.SPRINGProject.Models.UserAccRepository;
 import com.medeiros.SPRINGProject.Models.User_Credentials;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -16,6 +19,10 @@ import java.util.Optional;
 public class UserAccountController {
     @Autowired
     UserAccRepository UserAccRepo;
+
+    @Autowired
+    LogRepository Log;
+    LogModel Date = new LogModel();
     @GetMapping("/createUser01")
     public String createAuser(
             @RequestParam(name = "email") String email,
@@ -28,6 +35,9 @@ public class UserAccountController {
         } else {
             User_Credentials userCred = new User_Credentials(email, password, username);
             UserAccRepo.save(userCred);
+
+            LogModel logData = new LogModel("createUser01" , "User" , Date.getTimeNow() );
+            Log.save(logData);
             return "Sucesso";
         }
 

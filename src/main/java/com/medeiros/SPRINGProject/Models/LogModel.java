@@ -61,6 +61,10 @@ public class LogModel {
         return LocalDateTime.now();
     }
 
+    public LogModel(){
+
+    }
+
 }
 
 
