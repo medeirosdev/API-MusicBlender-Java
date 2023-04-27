@@ -44,4 +44,28 @@ public class UserAccountController {
         UserAccRepo.deleteById(intID);
         return "Conta Delatada";
     }
+    @GetMapping("/updateUser")
+    public String updateUserById(@RequestParam(name="id")String id,
+                                 @RequestParam(name="email")String email,
+                                 @RequestParam(name="password")String password,
+                                 @RequestParam(name="username")String username)
+    {
+        int intID = Integer.parseInt(id);
+        User_Credentials userExist = UserAccRepo.findById(intID);
+        if(userExist != null){
+            userExist.setEmail(email);
+            userExist.setPassword(password);
+            userExist.setUsername(username);
+            UserAccRepo.save(userExist);
+            return "Usuário Salvo";
+        }else{
+            return "User não encontrado";
+        }
+
+    }
+
+
+
+
+
 }
