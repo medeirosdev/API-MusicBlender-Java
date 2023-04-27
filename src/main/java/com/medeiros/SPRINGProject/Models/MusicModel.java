@@ -16,6 +16,44 @@ public class MusicModel {
 
     private String MusicDescription;
 
+    private int NumberOfLikes;
+
+    public int getMusicId() {
+        return MusicId;
+    }
+
+    public void setMusicId(int musicId) {
+        MusicId = musicId;
+    }
+
+    public int getNumberOfLikes() {
+        return NumberOfLikes;
+    }
+
+    public void setNumberOfLikes(int numberOfLikes) {
+        NumberOfLikes = numberOfLikes;
+    }
+
+    public int getNumberOfComents() {
+        return NumberOfComents;
+    }
+
+    public void setNumberOfComents(int numberOfComents) {
+        NumberOfComents = numberOfComents;
+    }
+
+    public int getNumberOfLoves() {
+        return NumberOfLoves;
+    }
+
+    public void setNumberOfLoves(int numberOfLoves) {
+        NumberOfLoves = numberOfLoves;
+    }
+
+    private int NumberOfComents;
+
+    private int NumberOfLoves;
+
     public MusicModel(int id , String MusicName , String Music , String MusicDescription){
         this.id = id;
         this.Music = Music;
