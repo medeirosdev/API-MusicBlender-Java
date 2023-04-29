@@ -23,7 +23,7 @@ public class UserAccountController {
     @Autowired
     LogRepository Log;
     LogModel Date = new LogModel();
-    @GetMapping("/createUser01")
+    @GetMapping("/createUser")
     public String createAuser(
             @RequestParam(name = "email") String email,
             @RequestParam(name = "password") String password,

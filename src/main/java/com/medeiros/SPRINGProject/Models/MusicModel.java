@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class MusicModel {
     @Id
     private int id;
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.UUID)
     private int MusicId;
 
     private String MusicName;

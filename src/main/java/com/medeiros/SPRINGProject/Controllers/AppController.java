@@ -29,6 +29,7 @@ public class AppController {
         if(music != null){
             int numberLikes = music.getNumberOfLikes();
             music.setNumberOfLikes(numberLikes + 1);
+            musicRepo.save(music);
             return "Operação deu bom";
 
         }else{
