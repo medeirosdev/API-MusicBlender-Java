@@ -28,8 +28,8 @@ public class algorithmBlender extends algorithmData {
             HashAlgorithm.put(musicName , rithmPoints );
 
         }
-        return hashMapFunctions.ordenarHashMapPorValor(HashAlgorithm);
-
+        //return hashMapFunctions.ordenarHashMapPorValor(HashAlgorithm);
+        return HashAlgorithm;
 
     }
 

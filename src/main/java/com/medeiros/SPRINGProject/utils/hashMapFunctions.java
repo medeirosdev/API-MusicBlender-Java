@@ -7,7 +7,7 @@ public class hashMapFunctions {
         List<Map.Entry<String, Integer>> list = new LinkedList<>(hashMap.entrySet());
 
         // Ordena a lista de acordo com os valores dos elementos do mapa em ordem decrescente
-        Collections.sort(list, new Comparator<Map.Entry<String, Integer>>() {
+        list.sort(new Comparator<Map.Entry<String, Integer>>() {
             public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
                 return (o2.getValue()).compareTo(o1.getValue());
             }
