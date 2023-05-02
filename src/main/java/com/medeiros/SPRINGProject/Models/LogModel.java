@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @Entity
 public class LogModel {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int logId;
 
     public int getLogId() {

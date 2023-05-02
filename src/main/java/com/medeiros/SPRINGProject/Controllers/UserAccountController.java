@@ -15,7 +15,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/userAccount")
+@RequestMapping("/user")
 public class UserAccountController {
     @Autowired
     UserAccRepository UserAccRepo;
@@ -23,7 +23,7 @@ public class UserAccountController {
     @Autowired
     LogRepository Log;
     LogModel Date = new LogModel();
-    @GetMapping("/createUser")
+    @GetMapping("/create")
     public String createAuser(
             @RequestParam(name = "email") String email,
             @RequestParam(name = "password") String password,

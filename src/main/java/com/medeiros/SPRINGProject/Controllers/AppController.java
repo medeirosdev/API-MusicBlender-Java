@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Optional;
-
 @RestController
 @RequestMapping("/app")
 public class AppController {
@@ -23,18 +21,15 @@ public class AppController {
     }
     //aa
     @GetMapping("/like/{musicID}/{userID}")
-    public String likeTheMusic(@PathVariable int musicID ,
-                             @PathVariable int userID){
+    public MusicModel likeTheMusic(@PathVariable int musicID ,
+                                   @PathVariable int userID){
         MusicModel music = musicRepo.findById(musicID);
-        if(music != null){
-            int numberLikes = music.getNumberOfLikes();
-            music.setNumberOfLikes(numberLikes + 1);
-            musicRepo.save(music);
-            return "Operação deu bom";
+        int numberLikes = music.getNumberOfLikes();
+        music.setNumberOfLikes(numberLikes + 1);
+        musicRepo.save(music);
+        return music;
 
-        }else{
-            return "Falhou operação de Like";
-        }
+
 
     }
 

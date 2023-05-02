@@ -6,8 +6,9 @@ import jakarta.persistence.*;
 @Table(name="MusicModel")
 public class MusicModel {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    @GeneratedValue(strategy = GenerationType.UUID)
+
     private int MusicId;
 
     private String MusicName;
@@ -54,8 +55,8 @@ public class MusicModel {
 
     private int NumberOfLoves;
 
-    public MusicModel(int id , String MusicName , String Music , String MusicDescription){
-        this.id = id;
+    public MusicModel(int MusicId , String MusicName , String Music , String MusicDescription){
+        this.MusicId = MusicId;
         this.Music = Music;
         this.MusicDescription = MusicDescription;
         this.MusicName = MusicName;
