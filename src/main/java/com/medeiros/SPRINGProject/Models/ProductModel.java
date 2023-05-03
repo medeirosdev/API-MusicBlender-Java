@@ -67,7 +67,7 @@ public class ProductModel {
     public void setListProduct(String listProduct) {
         this.listProduct = listProduct;
     }
-
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int productId;
 
     private String description;
@@ -78,10 +78,10 @@ public class ProductModel {
 
     private int userId;
 
-    public ProductModel(int productId, String description,
+    public ProductModel( String description,
                         double price, int musicId, int userId,
                         String listProduct) {
-        this.productId = productId;
+
         this.description = description;
         this.price = price;
         this.MusicId = musicId;

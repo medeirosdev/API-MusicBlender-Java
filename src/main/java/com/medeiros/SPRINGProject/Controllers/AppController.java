@@ -1,9 +1,6 @@
 package com.medeiros.SPRINGProject.Controllers;
 
-import com.medeiros.SPRINGProject.Models.CommentsModel;
-import com.medeiros.SPRINGProject.Models.CommentsRepository;
-import com.medeiros.SPRINGProject.Models.MusicModel;
-import com.medeiros.SPRINGProject.Models.MusicRepository;
+import com.medeiros.SPRINGProject.Models.*;
 import com.medeiros.SPRINGProject.algorithm.algorithmBlender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +12,10 @@ import java.util.Map;
 public class AppController {
     @Autowired
     MusicRepository musicRepo;
+    @Autowired
+    LogRepository Log;
+
+    LogModel Date = new LogModel();
     @Autowired
     CommentsRepository CommentsRepo;
     algorithmBlender ab = new algorithmBlender();
@@ -33,6 +34,8 @@ public class AppController {
         int numberLikes = musicToUpdate.getNumberOfLikes();
         musicToUpdate.setNumberOfLikes(numberLikes + 1);
         musicRepo.save(musicToUpdate);
+        LogModel logData = new LogModel("app/like/{id}" , "App" , Date.getTimeNow() );
+        Log.save(logData);
         return "Música Alterada!";
     }
 
@@ -42,6 +45,8 @@ public class AppController {
         int numberComments = musicToUpdate.getNumberOfComents();
         musicToUpdate.setNumberOfComents(numberComments + 1);
         musicRepo.save(musicToUpdate);
+        LogModel logData = new LogModel("app/comment/{id}" , "App" , Date.getTimeNow() );
+        Log.save(logData);
         return "Música Alterada!";
     }
     //Cria um comentário na Música de IdMúsic = id
@@ -50,6 +55,8 @@ public class AppController {
                                 @RequestParam(name="Comment")String Comment){
         CommentsModel comment = new CommentsModel(Comment , id );
         CommentsRepo.save(comment);
+        LogModel logData = new LogModel("app/createComment/{id}" , "App" , Date.getTimeNow() );
+        Log.save(logData);
         return Comment;
     }
 

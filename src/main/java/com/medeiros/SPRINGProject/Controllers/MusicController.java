@@ -1,5 +1,7 @@
 package com.medeiros.SPRINGProject.Controllers;
 
+import com.medeiros.SPRINGProject.Models.LogModel;
+import com.medeiros.SPRINGProject.Models.LogRepository;
 import com.medeiros.SPRINGProject.Models.MusicModel;
 import com.medeiros.SPRINGProject.Models.MusicRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,8 +10,13 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/music")
 public class MusicController {
+
+    @Autowired
+    LogRepository Log;
     @Autowired
     MusicRepository MusicRepo;
+
+    LogModel Date = new LogModel();
 
     @PostMapping(path="/create/{Userid}")
     public String createMusic(@RequestParam(name="MusicDescription") String MusicDescription,
