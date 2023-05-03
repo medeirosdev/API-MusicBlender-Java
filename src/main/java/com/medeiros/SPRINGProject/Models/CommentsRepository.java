@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CommentsRepository extends CrudRepository<CommentsModel ,Integer> {
 
-    @Query("SELECT m FROM Comments m WHERE m.MusicID = :MusicID")
-    CommentsModel findByMusicId(int MusicID);
+    //@Query("SELECT m FROM Comments m WHERE m.MusicID = :MusicID")
+    //CommentsModel findByMusicId(int MusicID);
 }

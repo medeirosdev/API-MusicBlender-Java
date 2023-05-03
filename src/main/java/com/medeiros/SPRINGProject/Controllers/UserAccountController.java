@@ -15,11 +15,10 @@ public class UserAccountController {
     UserAccRepository UserAccRepo;
     @Autowired
     UserInfoRepository UserInfoRepo;
-
     @Autowired
     LogRepository Log;
     LogModel Date = new LogModel();
-    @GetMapping(path="/create")
+    @PostMapping(path="/create")
     public String createAuser(
             @RequestParam(name = "email") String email,
             @RequestParam(name = "password") String password,

@@ -11,7 +11,7 @@ public class MusicController {
     @Autowired
     MusicRepository MusicRepo;
 
-    @GetMapping(path="/create/{Userid}")
+    @PostMapping(path="/create/{Userid}")
     public String createMusic(@RequestParam(name="MusicDescription") String MusicDescription,
                        @RequestParam(name="MusicName") String MusicName,
                        @RequestParam(name="Music") String Music, @PathVariable int Userid
