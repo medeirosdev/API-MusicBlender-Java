@@ -18,26 +18,7 @@ public class UserAccountController {
     @Autowired
     LogRepository Log;
     LogModel Date = new LogModel();
-    @PostMapping(path="/create")
-    public String createAuser(
-            @RequestParam(name = "email") String email,
-            @RequestParam(name = "password") String password,
-            @RequestParam(name = "confirmpassword") String confirmPassword,
-            @RequestParam(name = "username") String username) {
 
-        if (!Objects.equals(password, confirmPassword)) {
-            return "Senhas não batem!";
-        } else {
-            User_Credentials userCred = new User_Credentials(email, password, username);
-            UserAccRepo.save(userCred);
-
-            LogModel logData = new LogModel("createUser01" , "User" , Date.getTimeNow() );
-            Log.save(logData);
-            return "Sucesso";
-        }
-
-
-    }
     @GetMapping(path="/findUser")
     public User_Credentials findUserById(@RequestParam(name = "id") String ID){
         int intID = Integer.parseInt(ID);
