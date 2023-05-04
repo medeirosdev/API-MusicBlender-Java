@@ -43,16 +43,18 @@ public class AuthController {
     @GetMapping(path = "/login")
     public String loginUser(@RequestParam(name = "email") String email,
                             @RequestParam(name = "password") String password) {
-        User_Credentials user = UserAccRepo.findByEmail(email);
-        if (UserAccRepo.existsById(user.getId())) {
-            if (Objects.equals(user.getPassword(), password)) {
-                return "User Logado";
-            } else {
-                return "Senha errada";
-            }
-        } else {
-            return "Email Não encontrado!";
+        //User_Credentials user = UserAccRepo.findByEmail(email);
+        //if (UserAccRepo.existsById(user.getId())) {
+           // if (Objects.equals(user.getPassword(), password)) {
+             //   return "User Logado";
+           // } else {
+            //    return "Senha errada";
+           // }
+       // } else {
+         //   return "Email Não encontrado!";
+        return "error";
         }
 
+
     }
-}
+

@@ -10,6 +10,6 @@ public interface UserAccRepository extends CrudRepository<User_Credentials, Inte
 
     User_Credentials findById(int id);
 
-    @Query("SELECT u FROM User u WHERE u.email = ?1")
-    User_Credentials findByEmail(String email);
+    ///@Query("SELECT u FROM User u WHERE u.email = ?1")
+    //User_Credentials findByEmail(String email);
 }
