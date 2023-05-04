@@ -27,13 +27,14 @@ public class ForumController {
 
     @PostMapping(path="/message/{forumId}/{userId}")
     public String newMessage(@RequestParam(name="message") String message,
-                             @PathVariable int userId){
-        ForumChatModel messageForum = new ForumChatModel(message, userId);
+                             @PathVariable int userId,
+                            @PathVariable int forumId ){
+        ForumChatModel messageForum = new ForumChatModel(message, userId , forumId);
         ChatRepository.save(messageForum);
         return message;
     }
 
-    @GetMapping(path="/showMessages")
+    @GetMapping(path="/showMessages/")
     public Iterable<ForumChatModel> showMessages(){
         return ChatRepository.findAll();
     }

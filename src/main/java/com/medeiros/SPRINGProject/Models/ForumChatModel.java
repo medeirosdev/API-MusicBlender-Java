@@ -34,9 +34,10 @@ public class ForumChatModel {
         this.userId = userId;
     }
 
-    public ForumChatModel(String message, int userId) {
+    public ForumChatModel(String message, int userId, int forumId) {
         this.message = message;
         this.userId = userId;
+        this.forumId = forumId;
     }
     public ForumChatModel(){
 
@@ -45,5 +46,15 @@ public class ForumChatModel {
     private String message;
 
     private int userId;
+
+    public int getForumId() {
+        return forumId;
+    }
+
+    public void setForumId(int forumId) {
+        this.forumId = forumId;
+    }
+
+    private int forumId;
 
 }
