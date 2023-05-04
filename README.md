@@ -7,7 +7,10 @@ The API can be easily tested using Postman or any other HTTP client that support
 
 This API provides a foundation for building a more complex music platform, allowing for the creation and management of songs and artists. It can be extended to include additional functionality, such as user authentication and authorization, playlists, and more.
 
+## Diagram ( v1.0 )
 
+![alt text](https://github.com/medeirosdev/API-MusicBlender-Java/blob/master/tumblr.png)
+Não está pronto ainda
 
 ## Running the API
 
