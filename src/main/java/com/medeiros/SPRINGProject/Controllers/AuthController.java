@@ -1,15 +1,17 @@
 package com.medeiros.SPRINGProject.Controllers;
 
 import com.medeiros.SPRINGProject.Models.*;
+import com.medeiros.SPRINGProject.Security.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Objects;
 
+
 @RestController
 @RequestMapping(path="/auth")
 public class AuthController {
-
+    JwtUtil JwtToken;
     @Autowired
     UserAccRepository UserAccRepo;
     @Autowired
@@ -42,19 +44,19 @@ public class AuthController {
 
     @GetMapping(path = "/login")
     public String loginUser(@RequestParam(name = "email") String email,
-                            @RequestParam(name = "password") String password) {
-        //User_Credentials user = UserAccRepo.findByEmail(email);
-        //if (UserAccRepo.existsById(user.getId())) {
-           // if (Objects.equals(user.getPassword(), password)) {
-             //   return "User Logado";
-           // } else {
-            //    return "Senha errada";
-           // }
-       // } else {
-         //   return "Email Não encontrado!";
-        return "error";
+                              @RequestParam(name = "password") String password) {
+        User_Credentials user = UserAccRepo.findUserByEmail(email);
+        if(user != null){
+            if(Objects.equals(user.getPassword(), password)){
+
+                return "Logado";
+            }else{
+                return "Senha incorreta";
+            }
+        }else{
+            return "Email não encontrado!";
         }
 
-
+    }
     }
 
