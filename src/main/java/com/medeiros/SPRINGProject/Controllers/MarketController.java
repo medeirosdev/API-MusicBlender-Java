@@ -37,7 +37,9 @@ public class MarketController {
 
     @GetMapping(path="/MarketFeed")
     public Iterable<ProductModel> showAllProducts(){
+
         return ProductRepository.findAll();
+
     }
 
     @DeleteMapping(path="/delete/{id}")
